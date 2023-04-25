@@ -1,0 +1,397 @@
+--- 
+title: 'Programación para el análisis de datos: Práctica 1'
+author: "Daniel Fraiman"
+date: abril 2021
+output:
+  html_document: default
+  pdf_document: default
+---
+# **Variables**
+
+###1.  ¿Qué pasa si escribimos en línea de comandos b<-3 ?  ¿Por qué una flecha (<-) y por qué apunta hacia b?
+```{r} 
+```
+###2.  ¿Hay alguna diferencia entre *b=3* y *b<-3*?   ¿Qué asignación le parece más elegante (genera menos confusion)? ¿Por qué? \textit{La flecha es una manera de asignar que se presta a menos confusion.}
+
+###3.  A partir de la variable *b* creada en el item anterior genere una variable *d* que sea el doble de *b*.
+```{r}
+``` 
+###4.  Sume *b* con *d*, multiplique *b* con *d*, divida *b* sobre *d*. ¿El resultado quedó guardado en algún lado (alguna variable)? 
+```{r} 
+```
+###5. ¿Se puede usar R como una calculadora sin definir variables? *Sí, lo acabamos de hacer...*
+
+###6.  ¿Qué pasa si escribimos *b <- hola*? , ¿y si escribimos  *b <- ``hola''*?
+```{r} 
+```
+
+# **Vectores**
+## **Vectores de numeros**
+###7. Resolver
+#### a) Defina el vector x que tiene coordenadas (1, 4).
+```{r} 
+```
+#### b) Defina el vector y que tiene coordenadas (6, 9, 12, 412).
+```{r}
+```
+
+#### c) Defina el vector z que tiene coordenadas (1, 2, . . . , 1223). 
+```{r} 
+```
+#### d) Defina el vector w que tiene coordenadas (0.1,0.2,0.3,. . . ,422.7).
+Hint: una opcion es usar *seq(inicio, fin, delta)* 
+```{r}
+```
+#### e) ¿Qué longitud tiene el vector w? Hint: use la funcion *length* 
+```{r}
+```
+#### f) ¿Cuál es el valor de w en la coordenada 154? 
+```{r} 
+```
+#### g) Reemplace el valor que se encuentra en la coordenada 154 del vector w por el valor 2.4. 
+```{r} 
+```
+#### h) Diga qué valores toma w entre las coordenadas 124 y la 162. Hint: ¿Qué pasa si escribe w[2 : 6]? 
+```{r} 
+``` 
+
+#### i) Defina un nuevo vector s que tenga primero las coordenadas de x y luego las de w. Hint: se pueden concatenar vectores. 
+```{r} 
+``` 
+
+#### j) Defina un vector t que sea igual a w salvo que no tiene la coordenada 124. Hint: ¿En qué difiere y[-2] de y? 
+```{r} 
+``` 
+
+
+#### k) Utilizando permutaciones de coordenadas construya un vector s que sea igual a y salvo que las coordenadas 2 y 4 estan intercambiados. Hint: ¿Qué pasa si escribe y[c(2,1,3,4)]? 
+```{r} 
+``` 
+
+### 8. Defina el vector y que tiene coordenadas (6, 9, 12, 16) utilizando el comando y <-scan(). Hint: Para salir del scan hay que darle enter.
+
+### 9. Resolver: 
+#### a) Defina un vector x con los numeros naturales del 1 al 10, y un vector y con los numero del 101 al 110. ¿Qué se obtiene si hace x + y? ¿Qué se obtiene si hace x/y? Es importante que los vectores tengan la misma longitud? Grafique y en función de x utilizando el comando plot. ¿Qué hace R si tiene que sumar vectores de distinta longitud? Hint: Si le exigimos que sume vectores de distinta dimensión (que no tiene mucho sentido y hay que tratar de evitarlo salvo sumar un numero) toma lo "mas natural".
+```{r} 
+```
+#### b) Defina un vector x con los números naturales del 1 al 10, y eleve al cuadrado ese vector. ¿Qué hace R? ¿x^2 es igual a x*x?
+```{r} 
+``` 
+#### c) Aplique alguna operacion sobre q = c(1 : 4227) de manera de obtener el vector w del punto 1(d).
+```{r} 
+```
+#### d) Defina un vector de dimensión 100 en cuyas coordenadas tenga siempre el número 4. Hint: comando *rep(,)*
+```{r} 
+```
+### 10. A los elementos de un vector se les puede poner una etiqueta o nombre de las siguientes maneras:
+#### a)  x<-c(a=1,b=2,c=3)
+#### b)  x <- c(1:3) ; names(x) <- c(“a”, “b”, “c”)
+#### c)  x <- setNames(1:3, c(“a”, “b”, “c”))
+```{r} 
+```
+## **Vectores de caracteres**
+### 11. Resolver:
+#### a) Escriba letters. ¿En qué difiere de LETTERS? Hint: Estos dos vectores LETTERS y letters siempre están cargados en R. 
+```{r} 
+```
+#### b) ¿Qué longitud tiene el vector letters? 
+```{r} 
+```
+#### c) Escriba *paste(letters[1],letters[2],sep="")* y *paste(letters[1],letters[2],sep=" ")* Hint: sep indica quien separa a las "palabras". Y suele ser un espacio vacio... 
+
+```{r}
+
+```
+#### d) Escriba en pantalla la palabra "Hola". 
+```{r}
+```
+#### e) Escriba en pantalla la oracion "Me encanta R". Hint: paste(palabra1, palabra2, palabra3, sep=" ")
+
+```{r} 
+``` 
+
+```{r} 
+```
+
+```{r} 
+```
+
+#### f) ¿Es posible construir un vector donde la primera coordenada es "mesa", la segunda es "silla", y la tercera "mantel"?
+```{r} 
+```
+
+
+# **Numeros/vectores aleatorios**
+
+### 12. Resolver:
+
+#### a) Escriba *sample(c(1:20),2,replace=T)* y *sample(c(1:20),2,replace=F)*. Vuelva a escribir lo mismo. ¿Qué hace la función sample?
+```{r}
+```
+
+#### b) Tome 6 numeros al azar distintos de entre los números del 1 al 100. ¿Guardó los números o los escribió en pantalla?
+```{r}
+```
+
+#### c) Tome 2 letras al azar del abecedario.
+```{r}
+```
+
+#### d) Genere una clave alfabetica aleatoria de 4 letras mayúsculas.
+```{r}
+```
+
+
+#### e) Genere una clave alfanumerica aleatoria de 4 letras mayusculas y 4 numeros.
+```{r}
+```
+
+#### f) ¿Cómo le quedó la clave? Los números y las letras estan intercaladas o primero las  letras y luego los números? Utilizando los mismos caracteres y numeros genere una nueva clave permutando las posiciones (coordenadas) del vector. Hint: ¿Qué pasa si uno escribe *orden=sample(c(1:10),10,replace=F)*? Comenzamos por *orden <- sample(c(1 :h),h , replace = F), ¿y ahora?
+```{r}
+```
+
+### 13.  ¿Entendió la diferencia en paste entre collapse=“” y sep=“”? Corra lo siguiente para sacarse las dudas:
+```{r}
+```
+
+### 14.  Resolver:
+#### a) Tome una muestra aleatoria de tamaño 1000 de una distribución Normal con media mu = 12 y desvío sigma = 2. Hint: rnorm(n, mu, sigma).
+```{r}
+```
+
+#### b) Tome una muestra aleatoria de tamaño 1000 de una distribución Uniforme entre  3 y 8. Hint: runif(n, menor, mayor).
+```{r}
+```
+
+#### c) ¿Qué podria hacer para ver si efectivamente las muestras tomadas tienen la distribución adecuada? Hint: Hacer un gráfico, ¿cuál?
+```{r}
+```
+
+
+## Coerción
+Muchas veces R  "arregla"" las cosas a la fuerza sin avisarnos de que hay un error.
+
+
+### 15. Defina el siguiente vector, $x<-c(1,2,3,4)$.
+
+#### a) Verifique que tipo de vector es usando $typeof(x)$ o $class(x)$.
+
+#### b) Cambie el valor de la segunda coordenada por la cadena de caracteres ``dos".
+
+#### c) Verifique qué tipo de vector es ahora $x$.
+```{r}
+
+```
+ 
+### 16. Defina el siguiente vector, \quad $x<-c("1","2","3","4")$, y 
+ \begin{enumerate} 
+#### a) Verifique que tipo de vector es. 
+#### b) Fuerce a que el vector sea numérico. \textbf{Hint}: Mire la tabla de abajo [$as.\star$]
+```{r}
+
+```
+
+
+### 17. ¿Qué comando convierte un número en un caracter?
+```{r}
+
+```
+
+### 18. Coerción producida por nosotros:
+![Ocarina](tipo_coercion.jpg)
+
+
+### 19. El orden de coerción interna de  R es el siguiente:
+![Ocarina](orden_coercion.jpg)
+
+
+### 20. Para crear un vector sin una longitud predeterminada escribimos:
+```{r}
+
+```
+ 
+
+
+
+# **Matrices**
+### 21. Cree una matriz de 3x3, y luego completo con ceros, salvo en la diagonal que contenga unos. *Esta matriz se llama matriz identidad.*
+```{r}
+
+```
+### 22. Resuelva el item anterior utilizando los comandos matrix(0,nrow = -,ncol = -) y diag(⋆) = -
+```{r}
+
+```
+
+### 23.  Cree una matriz de 5x2, y complétela con números aleatorios de una muestra de Uniformes[0,1].
+#### a) ¿Qué valor esta la coordenada (4,2) de la matriz?
+#### b) ¿Qué dimensión tiene la matriz? Hint: *dim()*
+#### c) ¿Es efectivamente una matriz? Hint: *class()* o *is.matrix()*
+```{r}
+
+```
+
+### 24. ¿Entiende la diferencia entre is.matrix() y as.matrix()?
+
+### 25. Cree dos matrices de 4x3, y complete cada una con números aleatorios de una muestra de Uniformes[0,1].
+#### a) ¿Qué da la suma las dos matrices?
+#### b) ¿Y el producto? Esto lo hace R pero el producto entre matrices no es este.
+#### c) ¿Y la división? Esto lo hace R pero no existe la división entre matrices.
+#### d) ¿Es efectivamente una matriz? Hint: *class()* o *is.matrix()*
+```{r}
+
+```
+
+
+
+### 26. Cree dos matrices de 3x2, y complete cada una con números aleatorios de una muestra de Uniformes[0,1].
+#### a) Construya la matriz transpuesta, es decir la matriz de 2x3 con los mismos elementos de la anterior. Hint: *t()*
+```{r}
+```
+#### b) Haga el producto entre las matrices anteriores. ¿Se puede hacer el producto anterior (coordenada a coordenada)? 
+```{r}
+# m*tm
+```
+#### c) Haga el producto matricial entre las matrices anteriores. Hint: cambiar * por %*%.
+```{r}
+
+```
+#### d) ¿Qué dimensión tiene la matriz del producto matricial? 
+```{r}
+
+```
+#### e) ¿Da lo mismo hacer el producto matricial de una contra la otra que viceversa?   ¿Qué dimensión tiene cada una de las matrices producto?
+```{r}
+
+```
+
+
+### 27. Cree dos matrices de 4x2, y complete cada una secuencia del 1 al 8. ¿Qué criterio tiene R para completar la matriz con c(1:8)? ¿Completa filas o columnas primero?
+```{r}
+
+```
+#### ¿Cómo haría para completar filas primero?
+```{r}
+
+```
+#### a) Haga el producto matricial de la matriz anterior con su traspuesta. ¿Qué valor espera obtener en el lugar [3,2]? ¿Lo hace bien R?
+```{r}
+```
+### b) Entonces, ¿una matriz de 4x2 multiplicada por una 2x6 qué dimensión tiene? ,¿y una de n1xm multiplica por una de mxn2?
+```{r}
+
+```
+
+### 28. ¿Se puede multiplicar una matriz de 4x3 por una matriz de 3x1? ¿Qué es una matriz de 3x1? ¿Qué dimensión tiene ese producto? 
+```{r}
+```
+
+### 29. Norma de un vector. Sea x<-c(1,2), ¿cuál es la longitud del vector x?
+#### a) Calcule la longitud de x tres maneras distintas. ¿Utilizó en alguna de alternativas t(x)?
+```{r}
+
+```
+
+### 30. Sea x<-c(1:1000), ¿cuál es la longitud del vector x?
+Es decir, ¿cuá́l es la longitud de la flecha que sale del punto (0,0) y termina en el punto (1,2)?
+
+```{r}
+
+```
+
+
+### 31. ¿Cuántas vectores diferentes de dimensión dos se pueden armar con las letras "a", "b" y "c"? Ejemplo: c("a","c") otro c("c","a") otro c("b","a"). Para responder esta pregunta utilice el comando permutations(,,) de la librería gtools.   Primero construya un vector con las letras "a", "b" y "c" y luego use la función permutations.
+```{r}
+# library(gtools)
+```
+#### a) A partir del comando class() confirme que el comando permutations devuelve una matriz.
+```{r}
+
+```
+#### b) Observar la diferencia entre: x=c("a","b","c"); permutations(n=3,r=2,v=x,repeats.allowed=F); permutations(n=3,r=2,v=x,repeats.allowed=T)
+```{r}
+
+```
+
+# **Arrays**
+### 32. Corra lo siguiente:  *x<-array(dim=c(2,3,5))*
+```{r}
+
+```
+#### a) ¿Qué significa cada una de las dimensiones? ¿x tiene 5 matrices de cuánto por cuánto? ¿Cuántos números ``casilleros'' se pueden llenar?
+```{r}
+
+```
+
+#### b) Llene x con números del 1 al 30. ¿Cómo los completa por defecto?
+```{r}
+
+```
+#### c) ¿Qué número está en la posición 2,3,5? Cambie ese valor por el número 0
+```{r}
+
+```
+
+
+# **Listas**
+### 33. Las listas permiten cargar de todo un poco... Es la estructura más flexible. Las listas se usa doble corchete [[]]. Escribir: 
+```{r}
+```
+
+### 34. Otro ejemplo:
+```{r}
+```
+
+### 35. Otro ejemplo:
+```{r}
+```
+
+#### a) Explore las diferencia entre x$edad.hijos[[1]][[1]]yx$edad.hijos[[1]][1].Hint:is.list(). 
+```{r}
+
+```
+#### b) Calcule la edad promedio de los hijos que tuvo Pedro con Romina.
+```{r}
+
+```
+
+### 36. Otro ejemplo: 
+```{r}
+
+```
+
+### 37. Comentario. El comando unlist() convierte una lista en un vector. Pero ojo porque pocas veces puede ser una buena estrategia pasarlo a vector. Además recordar que los vectores son atómicos y las listas no.
+
+
+# **Data Frames**
+### 38. Son planillas. En una misma estructura podemos tener columnas con números y otras con caracteres. Es decir, no son objetos atómicos (is.atomic()).
+
+```{r}
+```
+
+### 39. Calcule la edad promedio de los hijos de María de la tabla df5. 
+```{r}
+
+```
+
+## Factores
+### 40. Crear un factor de la siguiente manera. 
+#### a) Defina un vector de caracteres con todos las categoría de identidad de géenero que se encuentran la página web https://genderfluidsupport.tumblr.com/gender/. Para hacer esto comience con los siguientes comandos
+```{a}
+ url="http://genderfluidsupport.tumblr.com/orientations"
+ 
+ pagina = readLines(url) 
+```
+#### b) Ya tenemos toda la info de la pagina ahora toca arremangarse las manos. Hint: ¿Qué objeto es pagina?
+#### c) Tome una muestra aleatoria con repeticio ́n de 100 elementos del vector anterior donde cada una de las categor ́ıas tiene la misma chance. Estos valores represen- tar ́ıan los valores observados en una poblaci ́on. Llame a este vector muestra.
+#### d) Construya un vector de factores a partir de los puntos (a) y (b). Llame a este vector muestra info completa.
+#### e) Utilizando el comando table y el comando barplot estudie la distribucio ́n de mues- tra y de muestra info completa.
+```{a}
+
+```
+
+
+ 
+
+### 42. Coerción para tipo de dato:
+![Ocarina](coercion_tipo_2.jpg)

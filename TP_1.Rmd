@@ -1,0 +1,950 @@
+---
+title: "Untitled"
+output: html_document
+date: '2023-03-23'
+---
+
+```{r}
+# cargar la página web y almacenarla en un objeto llamado "pagina"
+url <- "https://www.asexuality.org/en/topic/123256-asexuality-sexual-orientation-lexicon-read-me/"
+pagina <- readLines(url)
+#length(pagina)
+#pagina
+
+```
+```{r}
+indice = grep("Sexualities master list", pagina)
+indice 
+
+```
+```{r}
+pagina[1322]
+```
+
+
+```{r}
+alguito = pagina[4133]
+alguito
+class(alguito)
+```
+```{r}
+# Eliminar \n y \t utilizando gsub()
+alguito_limpio<- gsub("\\\\[nt]", "", alguito)
+alguito_limpio<- gsub("\\\\u00a0", "", alguito_limpio)
+alguito_limpio<- gsub("\\\"text\\\": ", "", alguito_limpio)
+alguito_limpio<- gsub("~*", "", alguito_limpio)
+alguito_limpio<- gsub("[*]", "", alguito_limpio)
+alguito_limpio<- gsub("\"", "", alguito_limpio)
+alguito_limpio<- gsub("Sexualities master list THE 5 MAIN LABELS:", "", alguito_limpio)
+alguito_limpio<- gsub("OTHER LABELS AND SUB-LABELS:", "", alguito_limpio)
+alguito_limpio<- gsub("^\\s+|\\s+$|\\\\", "", alguito_limpio, perl = TRUE)
+#alguito_limpio = unlist(strsplit(alguito_limpio, " - "))
+#alguito_limpio = unlist(strsplit(alguito_limpio, "-"))
+#alguito_limpio = unlist(strsplit(alguito_limpio, "\\."))
+
+# Dividir el texto en palabras utilizando strsplit()
+#palabras <- unlist(strsplit(alguito_limpio, " "))
+
+# Imprimir las palabras
+print(alguito_limpio)
+
+```
+```{r}
+vector_palabras = unlist(strsplit(alguito_limpio, " "))
+vector_palabras[1:10]
+
+```
+
+
+```{r}
+i_g = c()
+```
+```{r}
+descripcion_vec = c()
+```
+
+
+Asexual - A person who does not experience sexual attraction at all, but still might experience romantic or platonic attraction, and still may participate in sexual activities.
+```{r}
+ind_genero = grep("Asexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[3:27],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Bisexual - A person who experiences sexual attraction to 2 or more genders
+```{r}
+ind_genero = grep("Bisexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[30:40],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Heterosexual - A person who experiences sexual attraction to the opposite gender
+```{r}
+ind_genero = grep("Heterosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[43:52],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Homosexual - A person who experiences sexual attraction to the same gender
+```{r}
+ind_genero = grep("Homosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[55:64],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+
+Pansexual - A person who experiences sexual attraction to people regardless of their gender
+```{r}
+ind_genero = grep("Pansexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[67:78],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Abrosexual- A person who experiences a fluid or rapidly changing sexual attraction to different gender expressions.
+```{r}
+ind_genero = grep("Abrosexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[81], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[82:96],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Acosexual- A person whose negative experiences with sex has alienated them from their allo-romanticism
+```{r}
+ind_genero = grep("Acosexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[97], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[98:110],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Adfectual/Adfectusexual/Affectusexual/Adfsexual- A person whose sexual attraction is affected by their neurodivergency
+```{r}
+ind_genero = grep("Adfectual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[111], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[112:121],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Aegosexual/Autochorissexual- A person with a disconnect between themselves and the target of their sexual attractions/desires
+```{r}
+ind_genero = grep("Aegosexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[122], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[123:136],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Akoi(ne)sexual / Aposexual aka Lithsexual- A person who experiences sexual attraction to others but does not care or does not want that person to reciprocate
+```{r}
+ind_genero = grep("Akoi",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[139:141], "-"))
+vector = paste(vector, collapse = " ")
+vector
+palabra = paste(vector_palabras[137:138], collapse = "")
+palabra
+vector = paste(palabra, vector, collapse = "")
+vector
+#palabras = paste(vector_palabras[139:141], collapse = 
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[142:161],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Allosexual- A person who experiences sexual attractions
+```{r}
+ind_genero = grep("Allosexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[162], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[163:168],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Androgynosexual - A person who is attracted to androgynous people
+```{r}
+ind_genero = grep("Androgynosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[171:178],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Androsexual - A person who is sexually attracted to males
+```{r}
+ind_genero = grep("Androsexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[181:188],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Antisexual - A person who is opposed to sexuality
+```{r}
+ind_genero = grep("Antisexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[191:197],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+
+Apathsexual- A person who is indifferent/apathetic to sexual attraction
+```{r}
+ind_genero = grep("Apathsexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[198], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[199:206],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Apothisexual - A person who does not experiences sexual attraction and does not want others to be sexually involved with them
+```{r}
+ind_genero = grep("Apothisexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+ 
+```{r}
+descripcion = paste(vector_palabras[209:227],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Apressexual- A person who only experiences a sexual attraction after another form of attraction is felt. The original attraction may or may not fade/be replaced by the new attraction.
+```{r}
+ind_genero = grep("Apressexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[228], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[229:256],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Autosexual - A person who is sexually attracted to oneself, or a person who can experience sexual satisfaction mainly through masturbation
+```{r}
+ind_genero = grep("Autosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[259:277],collapse = " ")
+descripcion
+```
+
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Bellussexual- A person who enjoys the endearing aesthetics of romance/sexual courtship but does not want a sexual relationship.
+```{r}
+ind_genero = grep("Bellussexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[278], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[279:295],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Boreasexual- A person who has a set sexual orientation but with an exception
+```{r}
+ind_genero = grep("Boreasexual",vector_palabras)
+ind_genero
+vector = unlist(strsplit(vector_palabras[296], "-"))
+vector
+```
+```{r}
+i_g = c(i_g, vector)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[297:308],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Burstsexual - A person who experiences sudden idiopathic and sporadic episodes of sexual attraction.
+
+
+```{r}
+ind_genero = grep("Burstsexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[311:322],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+
+Caedsexual/Kalossexual- A person who used to experience sexual attractions, but no longer does due to past trauma.
+
+```{r}
+ind_genero = grep("Caedsexual/Kalossexual", vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+
+```{r}
+descripcion = paste(vector_palabras[324:339],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Cupiosexual - A person who does not experience sexual attractions but wants to be in a sexual relationship
+```{r}
+ind_genero = grep("Cupiosexual", vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+
+```{r}
+descripcion = paste(vector_palabras[342:357],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Demisexual - A person who only become sexually attracted to someone else after creating a strong emotional bond with that person. The sexual attraction does not exist before the two have created an emotional bond. (opposite of fraysexual)
+
+```{r}
+ind_genero = grep("Demisexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+
+```{r}
+descripcion = paste(vector_palabras[360:395],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Ensenisexual - A person who experiences sexual attraction and/or desire only when feeling very emotional. The emotions could include sadness, anxiety/fear, anger, jealousy, humiliation, compassion, joy, etc.
+
+```{r}
+ind_genero = grep("Ensenisexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[398:422],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+
+
+Fraysexual - A person who experiences sexual attraction to others inversely proportional to their familiarity with said person. The sexual attraction decreases as they become more emotionally involved. (opposite of demisexual)
+
+```{r}
+ind_genero = grep("Fraysexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+
+```{r}
+descripcion = paste(vector_palabras[425:453],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+Gray-asexual - A person whose sexuality is somewhere in between sexual and asexual, can have many different definitions
+```{r}
+ind_genero = grep("Gray-asexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[456:471],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Gynosexual - A person who is sexually attracted to females
+```{r}
+ind_genero = grep("Gynosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+
+```{r}
+descripcion = paste(vector_palabras[474:481],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Heteroflexible - A person who is heterosexual but willing to engage in a homosexual relationship/activity on occasion.
+```{r}
+ind_genero = grep("Heteroflexible",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[484:498],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Homoflexible - A person who is homosexual but willing to engage in a heterosexual relationship/activity on occasion.
+```{r}
+ind_genero = grep("Homoflexible",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[501:515],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Hypersexual - A person who experiences a high degree of sexual attractions.
+```{r}
+ind_genero = grep("Hypersexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[518:527],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Hyposexual - A person who experiences a low degree of sexual attractions.
+```{r}
+ind_genero = grep("Hyposexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[530:539],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Nebulasexual - A person who has a hard time or cannot tell sexual attraction apart from platonic due to being quoirorsexual or due to their neurodivergency.
+```{r}
+ind_genero = grep("Nebulasexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[542:565],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Novisexual - A person who experiences a complicated sexual attraction (or lack thereof) such that they do not feel it can be described in a single term
+```{r}
+ind_genero = grep("Novisexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[568:592],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Omniasexual / Omnia / Omniaelxi - A person who does not experience sexual, romantic, sensual, or aesthetic attractions.
+```{r}
+ind_genero = grep("Omniasexual",vector_palabras)
+ind_genero
+
+palabras = paste(vector_palabras[593:597], collapse = "")
+palabras
+
+```
+
+```{r}
+i_g = c(i_g, palabras)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[599:610],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Placiosexual - A person who wishes to perform sexual acts toward others, but does not want to receive sexual acts toward themselves
+```{r}
+ind_genero = grep("Placiosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[613:632],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Post rubor - A person who quickly gets crushes/squishes/etc on others, but after the initial excitement of said crush/etc vanishes, so do their feelings.
+```{r}
+ind_genero = grep("Post",vector_palabras)
+ind_genero
+palabras = paste(vector_palabras[633:634], collapse = " ")
+palabras
+```
+```{r}
+i_g = c(i_g, palabras)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[636:656],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Polysexual - A person who experiences sexual attraction to people they perceive of one of multiple different genders
+```{r}
+ind_genero = grep("Polysexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[659:674],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Proquusexual - A masculine person who only experiences sexual attractions to those perceived as also being masculine.
+```{r}
+ind_genero = grep("Proquusexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[677:691],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Quassexual - A person who experiences nontraditional sexual attractions
+```{r}
+ind_genero = grep("Quassexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[694:700],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Quoisexual aka WTFsexuals - A person who has trouble distinguishing between sexual attraction and other forms of attraction (platonic, romantic, etc.)
+```{r}
+ind_genero = grep("Quoisexual",vector_palabras)
+ind_genero
+palabras = paste(vector_palabras[701:703], collapse = " ")
+palabras
+```
+```{r}
+i_g = c(i_g, palabras)
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[704:721],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Requiesssexual - A person who does not experiences sexual attraction due to emotional exhaustion
+```{r}
+ind_genero = grep("Requiesssexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[723:735],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+ 
+Sapiosexual - A person who is sexually attracted to people who they perceive to be intelligent.
+```{r}
+ind_genero = grep("Sapiosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[737:751],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Skoliosexual/Ceterosexual - A person who experiences sexual attractions toward people that have an a nonbinary gender.
+```{r}
+ind_genero = grep("Skoliosexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[754:767],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+Zedsexual - A person who is not asexual. (Alternative term for allosexual)
+```{r}
+ind_genero = grep("Zedsexual",vector_palabras)
+ind_genero
+```
+```{r}
+i_g = c(i_g, vector_palabras[ind_genero])
+i_g
+```
+```{r}
+descripcion = paste(vector_palabras[770:779],collapse = " ")
+descripcion
+```
+```{r}
+descripcion_vec = c(descripcion_vec,descripcion)
+descripcion_vec 
+```
+
+```{r}
+df = data.frame(I_G = i_g, descripcion = descripcion_vec)
+df
+```
+```{r}
+#set.seed(22)
+#indices_aleatorios = sample(i_g, 30)
+#indices_aleatorios
+#filas_aleatorias <- sample(1:nrow(df), 30)
+#df_aleatorio <- df[filas_aleatorias, ]
+#df_aleatorio
+#df_aleatorio = df[indices_aleatorios, ]
+#df_aleatorio
+```
+```{r}
+set.seed(33)
+muestra <- sample(df$I_G, 30, replace = TRUE)
+muestra
+```
+```{r}
+tabla <- table(muestra)
+barplot(tabla, las = 2, cex.names = 0.7)
+```
+```{r}
+muestra_factor <- factor(muestra, levels = unique(df$I_G))
+
+# Estudiar la distribución de la muestra factorizada con el comando table y barplot
+tabla_factor <- table(muestra_factor)
+barplot(tabla_factor, las = 2, cex.names = 0.7)
+```
+
