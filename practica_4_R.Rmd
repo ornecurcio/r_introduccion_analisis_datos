@@ -1,0 +1,71 @@
+---
+title: "practica_4_r"
+output: html_document
+date: '2023-05-09'
+---
+
+1.- Bajar los datos births2006smpl.rda del campus, y cargarlos utilizando el comando load("births2006smpl.rda"). DOB MM= Month of date of birth DOB WK= Day of week of birth MAGER= Mother's age TBO REC= Total birth order WTGAIN= Weight gain by mother SEX= a factor with levels F M, representing the sex of the child APGAR5= APGAR score DMEDUC= Mother's education level UPREVIS= Number of prenatal visits ESTGEST= Estimated weeks of gestation DMETH REC= Delivery Method DPLURAL= "Plural Births;"levels include 1 Single, 2 Twin, 3 Triplet, 4 Quadruplet, and 5 Quintuplet or higher DBWT= Birth weight, in grams
+
+```{r}
+load("C:/Users/orne_/OneDrive/Documentos/--------Master Data Science--------/R/births2006smpl.rda")
+```
+
+(a) Renombre los datos. Hint: datos = births2006smpl
+
+```{r}
+datos = births2006.smpl
+```
+
+(b) ¿Qué tipo de objeto es datos? Hint: class(?)
+
+```{r}
+class(datos)
+```
+
+(c) ¿Cu´antas filas y cu´antas columnas tiene la tabla de datos? Hint: dim(datos)
+
+```{r}
+dim(datos)
+```
+
+(d) Mire los primeros datos para entender qu´e informaci´on tiene la tabla. Hint: head(datos).
+
+DOB MM= Month of date of birth DOB WK= Day of week of birth MAGER= Mother's age TBO REC= Total birth order WTGAIN= Weight gain by mother SEX= a factor with levels F M, representing the sex of the child APGAR5= APGAR score DMEDUC= Mother's education level UPREVIS= Number of prenatal visits ESTGEST= Estimated weeks of gestation DMETH REC= Delivery Method DPLURAL= "Plural Births;"levels include 1 Single, 2 Twin, 3 Triplet, 4 Quadruplet, and 5 Quintuplet or higher DBWT= Birth weight, in grams
+
+```{r}
+head(datos)
+```
+
+(e) Renombre las variables. Hint: names(datos)=c("mes","dia","edad madre","num hijos", "peso ganado madre","sexo","apgar","educ","visitas medicas","gestacion", "tipo parto","parto multiple","peso")
+
+```{r}
+names(datos)=c("mes","dia","edad_madre","num_hijos",
+"peso_ganado_madre","sexo","apgar","educ","visitas_medicas","gestacion",
+"tipo_parto","parto_multiple","peso")
+```
+
+(f) Observaci´on: Hay otra manera de hacer el item (d) usando el paquete [tidyverse. \> datos = datos % \> % rename(mes = DOB MM, dia = DOB WK)
+
+```{r}
+
+```
+
+(g) Limpie la base. ¿Cual es el valor mas alto para la variable gestacion? Cambie este valor por NA. Luego calcule el numero promedio de semanas de gestacion. Hint: mean(datos\$gestacion,na.rm=T). ¿Que signica ra.rm=T?
+
+```{r}
+max_gestacion = max(datos$gestacion) 
+replace(max_gestacion, datos$gestacion, 'NA')
+mean(datos$gestacion,na.rm=T)
+
+
+```
+
+(h) Cambie los valores de la variable dia por domingo, lunes, martes, ..., sabado. Hint: datos\$dia=as.factor(datos\$dia); levels(datos\$dia)=c(\\domingo", ..., \\sabado").
+
+```{r}
+datos$dia = as.factor(datos$dia)
+levels(datos$dia) = c('domingo','lunes','martes','miercoles','jueves','viernes','sabado')
+datos$dia
+```
+
+Agregarle a la tabla una nueva variable construida a partir de las variables peso y gestacion. Usar el comando mutate paquete tidyverse. Abajo un ejemplo.
